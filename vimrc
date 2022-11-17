@@ -1,5 +1,5 @@
 
-"set showcmd
+" set showcmd
 "
 "set filetype off
 "set filetype plugin indent on
@@ -26,8 +26,20 @@
 "
 "                         MY VIMRC FILE
 "
+set expandtab
+set shiftwidth=2
+set tabstop=2
 
-color slate
+set wrap 
+
+set mouse=a
+
+set relativenumber
+
+colorscheme  slate
+
+set autoindent
+
 " set guicursor=   works in neovim - set cursor to block
 
 " Disable compatibility with vi which can cause unexpected issues.
@@ -110,7 +122,7 @@ set wildmode=list:longest
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
 " MAP ESCAPE KEY - inoremap (Normal mode) – Allows you to map keys in insert mode.
-inoremap jk <esc>
+inoremap jj <esc>
 
 " MAPLEADER
 let mapleader = ","
