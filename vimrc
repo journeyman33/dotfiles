@@ -1,174 +1,118 @@
+" NEW VIMRC FILE
+" GENERAL SETTINGS
 
-" set showcmd
-"
-"set filetype off
-"set filetype plugin indent on
-"
-"set noswapfile
-"set noshowmode
-"set ts=2 sw=2 sts=2 et
-"set backspace=indent,eol,start
-"
-"let mapleader="," 
-"
-"if has("autocmd")
-"   autocmd FileType go set ts=2 sw=2 sts=2 noet nolist autowrite
-"endif 
-"
-"syntax on
-"
-"
-"" vim-plug JAY - Call the .vimrc.plug file
-"if filereadable(expand("~/.vimrc.plug"))
-"      source ~/.vimrc.plug
-"endif
-"
-"
-"                         MY VIMRC FILE
-"
-set expandtab
-set shiftwidth=2
-set tabstop=2
+let mapleader = " "             " set leader key to space
 
-set wrap 
 
-set mouse=a
+set title
+set path+=**                    " searches current directory recursively.
 
-set relativenumber
+set nocompatible                " necessary for several cool vim things
 
-colorscheme  slate
+set tabstop=2 softtabstop=2     " sets tabs equal to 4 spaces
+set shiftwidth=2                " sets shift width to 4 spaces
+set expandtab                   " converts tabs to spaces
+set smartindent                 " attempts to properly indent - set autoindent
 
-set autoindent
+set showcmd                     " shows current command
+set showmode                    " shows current mode
 
-" set guicursor=   works in neovim - set cursor to block
+syntax on                       " enables syntax highlighting
 
-" Disable compatibility with vi which can cause unexpected issues.
-set nocompatible
+set number                      " shows line numbers
+set relativenumber              " shows line numbers relative to the cursor position
 
-" Enable type file detection. Vim will be able to try to detect the type of file in use.
+set nowrap                      " does not allow lines to wrap
+
+set ignorecase                  " ignores case when searching
+set smartcase                   " turns on case sensitive search when letters are capitalized
+set incsearch                   " sets incremental search
+
+
+set scrolloff=8                 " starts scrolling the page when cursor is # lines from the bottom
+
+set encoding=utf-8
+
+set nohlsearch                  " turns off highlight after enter is pressed when searching
+
+set mouse=a                     " mouse scrolling
+
+set clipboard+=unnamedplus      " sets the clipboard so you can paste stuff from outside vim into vim.
+
+set complete+=kspell            " auto complete with spellcheck
+set completeopt=menuone,longest " auto complete menu (It's pretty great)
+
+set nobackup                    " Do not save backup files.
+set scrolloff=8                 " Do not let cursor scroll below or above N number of lines when scrolling.
+
+                                " Do not let cursor scroll below or above N number of lines when scrolling.
+set backspace=indent,eol,start  " backspace keeps working
+set encoding=utf-8
+
+set history=1000                " Set the commands to save in history default number is 20.
+
 filetype on
-
-" Enable   === PLUGINS ===    load plugin for the detected file type.
-"          ~/.vim/pack/myplugins/start/    ~/.vim/pack/myplugins/opt
-filetype plugin on
-
-" Load an indent file for the detected file type.
 filetype indent on
 
-" Turn syntax highlighting on.
-syntax on
+filetype plugin on
 
-" Add numbers to each line on the left-hand side.
-set number
-" Highlight cursor line underneath the cursor horizontally.
-" set cursorline
+""""
+" NO PLUGIN MANAGER
 
-
-" Highlight cursor line underneath the cursor vertically.
-" set cursorcolumn
-" " Set shift width to 4 spaces.
-set shiftwidth=2
-
-" Set tab width to 4 columns.
-set tabstop=2
-
-" Use space characters instead of tabs.
-set expandtab
-
-" Do not save backup files.
-set nobackup
-
-" Do not let cursor scroll below or above N number of lines when scrolling.
-set scrolloff=10
-
-
-" Do not wrap lines. Allow long lines to extend as far as the line goes.
-set nowrap
-
-" While searching though a file incrementally highlight matching characters as you type.
-set incsearch
-
-" Ignore capital letters during search.
-set ignorecase
-
-" Override the ignorecase option if searching for capital letters.
-" This will allow you to search specifically for capital letters.
-set smartcase
-
-" Show partial command you type in the last line of the screen.
-set showcmd
-
-" Show the mode you are on the last line.
-set showmode
-
-" Show matching words during a search.
-set showmatch
-
-" Use highlighting when doing a search.
-set hlsearch
-
-" Set the commands to save in history default number is 20.
-set history=1000
-
-
-" Enable auto completion menu after pressing TAB.
-set wildmenu
-
-" Make wildmenu behave like similar to Bash completion.
-set wildmode=list:longest
-
-" There are certain files that we would never want to edit with Vim.
-" Wildmenu will ignore files with t:hese extensions.
-set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
-
-" MAP ESCAPE KEY - inoremap (Normal mode) – Allows you to map keys in insert mode.
-inoremap jj <esc>
-
-" MAPLEADER
-let mapleader = ","
-
-
-
-" STATUS LINE ------------------------------------------------------------ {{{
-
-" Clear status line when vimrc is reloaded.
-set statusline=
-
-" Status line left side.
-set statusline+=\ %F\ %M\ %Y\ %R
-
-" Use a divider to separate the left side from the right side.
-set statusline+=%=
-
-" Status line right side.
-set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c\ percent:\ %p%%
-
-" Show the status on the second to last line.
-set laststatus=2
-
-
-" sp > goes to bottom vs > goes to righit
-set splitbelow splitright
-
-
-
-
-" BLOCK CURSOR  ===  (1) Normal mode  = block   (2) Insert = line
-" Use a line cursor within insert mode and a block cursor everywhere else.
+" clone, pull (update)  plugins at opt and start directories:
+" ~/.vim/pack/myplugins/start/    ~/.vim/pack/myplugins/opt
 "
-" Using iTerm2? Go-to preferences / profile / colors and disable the smart bar
-" cursor color. Then pick a cursor and highlight color that matches your
-" theme.
-" That will ensure your cursor is always visible within insert mode.
-"
-" Reference chart of values:
-"   Ps = 0  -> blinking block.
-"   Ps = 1  -> blinking block (default).
-"   Ps = 2  -> steady block.
-"   Ps = 3  -> blinking underline.
-"   Ps = 4  -> steady underline.
-"   Ps = 5  -> blinking bar (xterm).
-"   Ps = 6  -> steady bar (xterm).
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
+" push/pull  /home/charles/git/dotfiles/vimrc  to/from  https//:journeyma33/dotfiles/vimrc
 
+let NERDTreeShowHidden=1
+
+
+"""
+
+colorscheme slate               " also try hybrid (nvim)
+
+set splitbelow splitright       " sets more logical split behavior
+
+set laststatus=2                " always show statusline
+
+" remap split navigation to just CTRL + hjkl
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" adjust split sizes easier
+noremap <silent> <C-Left> :vertical resize +3<CR>
+noremap <silent> <C-Right> :vertical resize -3<CR>
+noremap <silent> <C-Up> :resize -3<CR>
+noremap <silent> <C-Down> :resize +3<CR>
+
+" open a terminal inside nvim
+map <leader>tt : term zsh<CR>
+
+" change 2 split windows from vertical to horizontal or vice versa
+map <leader>th <C-w>t<C-w>H
+map <leader>tk <C-w>t<C-w>K
+
+" remap ESC
+" :imap <CapsLock> <Esc>  try this in nvim
+:imap ii <Esc>
+:imap jj <Esc>
+
+" simulate moving in shell/terminal insert mode (or emacs)
+:imap <silent> <C-e> <ESC>A
+:imap <silent> <C-a> <ESC>I
+
+" open vifm in a vertical split
+" nnoremap <leader>vs :VsplitVifm<CR>
+" remove  trailing whitespace on save:
+autocmd BufWritePre * %s/\s\+$//e
+
+" automatically close brackets and parenthesis and place cursor inside
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>0
+inoremap {;<CR> {<CR>};<ESC>0
