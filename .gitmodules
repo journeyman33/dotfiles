@@ -1,0 +1,9 @@
+[submodule "yazi/.config/yazi/plugins-repo"]
+	path = yazi/.config/yazi/plugins-repo
+	url = https://github.com/yazi-rs/plugins.git
+[submodule "yazi/.config/yazi/yazi-repo"]
+	path = yazi/.config/yazi/yazi-repo
+	url = https://github.com/sxyazi/yazi.git
+[submodule "yazi/.config/yazi/plugins/glow.yazi"]
+	path = yazi/.config/yazi/plugins/glow.yazi
+	url = https://github.com/Reledia/glow.yazi.git

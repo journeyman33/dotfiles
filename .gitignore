@@ -1,0 +1,15 @@
+# Ignore system files
+.DS_Store
+
+# Ignore temporary files
+*.swp
+*.swo
+
+# Ignore directories
+node_modules/
+vendor/
+
+# Ignore submodule .git directories (submodules are handled separately)
+yazi/.config/yazi/yazi-repo/.git
+yazi/.config/yazi/plugins-repo/.git
+yazi/.config/yazi/plugins/glow.yazi/.git
