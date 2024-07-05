@@ -7,3 +7,6 @@
 [submodule "yazi/.config/yazi/plugins/glow.yazi"]
 	path = yazi/.config/yazi/plugins/glow.yazi
 	url = https://github.com/Reledia/glow.yazi.git
+[submodule "nvim/.config/nvim/.config/nvim"]
+	path = nvim/.config/nvim/.config/nvim
+	url = https://github.com/journeyman33/kickstart.nvim.git
