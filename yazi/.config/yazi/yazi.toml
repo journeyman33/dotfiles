@@ -61,6 +61,7 @@ edit = [
 open = [
 	{ run = 'xdg-open "$@"',                desc = "Open", for = "linux" },
 	{ run = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" },
+	{ run = 'w3m "$@"', desc = "Open with W3M (Linux)", for = "unix", ext = "html" }
 ]
 
 # Specific rules for handling file types
