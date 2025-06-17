@@ -5,19 +5,19 @@
 ## Open Shell (The same as C-q or even beter C-z ?)
 [[manager.prepend_keymap]]
 on   = [ "<C-s>" ]
-run  = 'shell "$SHELL" --block --confirm'
+run  = 'shell "$SHELL" --block'
 desc = "Open shell here"
 
 ## Maximize the preview screen
 [[manager.prepend_keymap]]
 on   = [ "M" ]
-run  = "plugin --sync max-preview"
+run  = "plugin max-preview"
 desc = "Maximize or restore preview"
 
 ## Minimize the preview screen
 [[manager.prepend_keymap]]
-on   = [ "M" ]
-run  = "plugin --sync hide-preview"
+on   = [ "<A-m>" ]
+run  = "plugin hide-preview"
 desc = "Hide or show preview"
 
 ## Scroll down in the preview pane
@@ -83,11 +83,11 @@ keymap = [
 	{ on = [ "G" ],      run = "arrow 99999999",  desc = "Move cursor to the bottom" },
 
 	# Selection
-	{ on = [ "<Space>" ], run = [ "select --state=none", "arrow 1" ], desc = "Toggle the current selection state" },
-	{ on = [ "v" ],       run = "visual_mode",                        desc = "Enter visual mode (selection mode)" },
-	{ on = [ "V" ],       run = "visual_mode --unset",                desc = "Enter visual mode (unset mode)" },
-	{ on = [ "<C-a>" ],   run = "select_all --state=true",            desc = "Select all files" },
-	{ on = [ "<C-r>" ],   run = "select_all --state=none",            desc = "Inverse selection of all files" },
+	{ on = [ "<Space>" ], run = "toggle",                desc = "Toggle the current selection" },
+	{ on = [ "v" ],       run = "visual_mode",           desc = "Enter visual mode (selection mode)" },
+	{ on = [ "V" ],       run = "visual_mode --unset",   desc = "Enter visual mode (unset mode)" },
+	{ on = [ "<C-a>" ],   run = "toggle_all --state=on", desc = "Select all files" },
+	{ on = [ "<C-r>" ],   run = "toggle_all",           desc = "Inverse selection of all files" },
 
 	# Operation
 	{ on = [ "o" ],         run = "open",                       desc = "Open the selected files" },

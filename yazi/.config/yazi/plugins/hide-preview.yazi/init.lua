@@ -1,3 +1,4 @@
+--- @sync entry
 local function entry(st)
 	if st.old then
 		Manager.layout, st.old = st.old, nil

@@ -13,7 +13,7 @@ use = "flavor-example"
 
 # : Manager {{{
 
-[mgr]
+[manager]
 cwd = { fg = "cyan" }
 
 # Hovered
